@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    
+      <div class="row">
+          <div class="col-12">
+              <div class="head-cont d-flex flex-row justify-content-between align-items-center pt-3 px-4">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-sack-dollar fa-2xl bag-icon mt-3"></i>
+                      <p class="headr-para ps-3">Spend Wise</p>
+                  </div>
+                  <div class="pe-2">
+                      <p class="profile d-flex flex-row justify-content-center align-items-center rounded-circle">MA</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-12 px-4 mt-3">
+              <div (click)="navigateBack()"  class="text-decoration-none text-dark fw-medium">
+                  <i class="fa-solid fa-arrow-left me-1"></i> Back
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 px-4 mt-4">
+            <p class="text-dark fw-medium mb-0">February 2024</p>
+            <div class="d-flex flex-row justify-content-between align-items-end">  
+                <p class="card-dtls-headr-para mb-0 fw-medium"> {{cardTitle}} <span class="total px-3">Total</span> &#x20B9; {{cardAmount}} </p>
+                <button (click)="openModal(null)" id="defaultModal" class="uti-add-btn text-light px-3 py-2">Add Bills</button>
+            </div>
+            <app-form-modal *ngIf="isModalOpened" [formRowData]="rowData" (closeModalVar)="closeModal($event)"></app-form-modal>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 px-4 mt-5 table-responsive">
+              <table class="table">
+
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th class="tble-headings" scope="col">Bill No</th>
+                      <th class="tble-headings" scope="col">Date</th>
+                      <th class="tble-headings" scope="col">Shop/Company/Person</th>
+                      <th class="tble-headings" scope="col">Description</th>
+                      <th class="tble-headings" scope="col">Amount</th>
+                      <th class="tble-headings" scope="col"></th>
+                      <th class="tble-headings" scope="col"></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr *ngFor="let row of filteredRows">
+                      <td scope="row">
+                        <i [class]="row.iconType + ' ' + row.icon1"></i>
+                      </td>
+                      <td class="fw-medium">{{row.billNo}}</td>
+                      <td class="fw-medium">{{row.billDate}}</td>
+                      <td class="fw-medium">{{row.companyName}}</td>
+                      <td class="fw-medium">{{row.desc}}</td>
+                      <td class="fw-medium">&#x20B9; {{row.amount}}</td>
+                      <td (click)="openModal(row)" id="iconButton0" class="fw-medium"><i  [class]="'fa-solid ' + row.icon2 + ' '"></i></td>
+                      <td class="fw-medium"><i [class]="'fa-solid ' + row.icon3 + ' '"></i></td>
+                    </tr>
+                  </tbody>
+
+              </table>
+        </div>
+      </div>
+
+</div> 

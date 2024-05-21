@@ -1,1 +1,305 @@
+@import 'bootstrap';
+
+
+
+
 /* You can add global styles to this file, and also import other style files */
+.bag-icon{
+    color: #9C27B0;
+}
+
+.headr-para{
+    color: #9C27B0;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.profile{
+    height: 30px;
+    width: 30px;
+    border: 1px solid #9C27B0;
+    background-color: #9C27B03B;
+    color: #9C27B0;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.head-cont{
+    border-bottom: 1px solid #9C27B03B;
+}
+
+.headr-monthyear{
+    font-size: 23px;
+    font-weight: 600;
+    border: none;
+}
+
+.headr-amount{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.total{
+    font-size: 13px;
+    color: rgb(104, 104, 100);
+}
+
+.addcard-bg-clr{
+    background-color: #9C27B0;
+}
+
+.add-bill{
+    font-size: 18px;
+}
+
+.fa-circle-plus{
+    font-size: 25px;
+    background-color: transparent;
+}
+
+.groc-bg-clr{
+    background-color: #4CAF50;
+}
+
+.groc-card-cont{
+    border: 1px solid #4CAF50;
+}
+
+.card-items{
+    font-size: 11px;
+}
+
+.card-total-para{
+    font-size: 11px;
+    color: rgb(104, 104, 100);
+}
+
+.groc-amount-clr{
+    color: #4CAF50;
+}
+
+.right-card{
+    width: 55%;
+}
+
+.trans-card-bg{
+    background-color: #D88913;
+}
+
+.trans-card-cont{
+    border: 1px solid #D88913;
+}
+
+.trans-amount-clr{
+    color: #D88913;
+}
+
+.food-card-bg{
+    background-color: #E45F5F;
+}
+
+.food-card-cont{
+    border: 1px solid #E45F5F;
+}
+
+.food-amount-clr{
+    color: #E45F5F;
+}
+
+.fun-card-bg{
+    background-color: rgb(233, 30, 99);
+}
+
+.fun-card-cont{
+    border: 1px solid #E91E63;
+}
+
+.fun-amount-clr{
+    color: #E91E63;
+}
+
+.health-card-bg{
+    background-color: #009688;
+}
+
+.health-card-cont{
+    border: 1px solid #009688;
+}
+
+.health-amount-clr{
+    color: #009688;
+}
+
+.uti-card-bg{
+    background-color: #3F51B5;
+}
+
+.uti-card-cont{
+    border: 1px solid #3F51B5;
+}
+
+.uti-amount-clr{
+    color: #3F51B5;
+}
+
+.misc-card-bg{
+    background-color: #795548;
+}
+
+.misc-card-cont{
+    border: 1px solid #795548;
+}
+
+.misc-amount-clr{
+    color: #795548;
+}
+
+.row>* {
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.left-card{
+    width: 45%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.cards-cont{
+    width: 326px;
+    height: 194px;
+    color: white;
+    border-radius: 16px;
+}
+
+.card-amount-fonts{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.btn-close{
+    height: 2px;
+    width: 2px;
+    border: 1px solid rgb(155, 154, 154);
+    padding: 1px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #9C27B03B;
+}
+
+.modal-footer {
+    border-top: 1px solid #9C27B03B;
+}
+
+.btn{
+    border: 1px solid #9C27B0;
+    border-radius: 4px;
+}
+
+.modl-headings{
+    font-size: 13px;
+}
+
+.modl-input-text-cont{
+    border: 1px solid #9C27B0;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.modal-amount-input{
+    border: none;
+    height: 38px;
+    box-shadow: none;
+    outline: none;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.drop-content{
+    font-size: 15px;
+}
+
+::placeholder {
+    color: black;
+}
+
+.pop-amount{
+    background-color: #9C27B0;
+    height: 38px;
+    border-radius: 3px;
+}
+
+.pop-amount1{
+    background-color: #9C27B0;
+    height: 38px;
+    width: 46px;
+    border-radius: 4px;
+}
+
+.md-close-btn{
+    color:#9C27B0;
+}
+
+.md-close-btn:hover{
+    color:#9C27B0;
+}
+
+.md-save-btn{
+    background-color: #9C27B0;
+}
+
+.uti-add-btn{
+    border: none;
+    background-color: #9C27B0;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+.card-dtls-headr-para{
+    color: #3F51B5;
+    font-size: 22px;
+}
+
+.tble-headings{
+    font-size: 13px;
+    color: rgb(61, 61, 61) !important;
+    font-weight: 500;
+}
+
+.table>:not(caption)>*>* {
+    padding: .9rem .0rem;
+    border-color: #9C27B03B;
+}
+
+.date-input{
+    border: 1px solid #9C27B0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.w-45{
+    width: 45%;
+}
+
+.custom-placeholder::placeholder {
+    color: gray;
+    font-weight: 400; 
+    font-size: 15px;
+}
+
+@media (max-width: 767px) {
+    .headr-monthyear{
+        font-size: 15px;
+    }
+    .headr-amount{
+        font-size: 18px;
+    }
+    .total{
+        font-size: 10px;
+    }
+    .card-dtls-headr-para{
+        font-size: 18px;
+    }
+}
