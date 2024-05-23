@@ -25,12 +25,12 @@ export class BillsComponent implements OnInit {
       .subscribe(data => this.cardList = data);
   }
 
-  closeModal(val:boolean){
-    this.isModalOpened = false;
-  }
-
   displayModal() {
     this.isModalOpened = true;
+  }
+
+  closeModal(val:boolean){
+    this.isModalOpened = false;
   }
 
   onSelect(card: any) {

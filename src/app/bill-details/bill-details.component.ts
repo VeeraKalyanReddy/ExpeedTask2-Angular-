@@ -49,13 +49,13 @@ export class BillDetailsComponent implements OnInit {
     if (this.rowData && this.rowData.billDate) {
       const date = new Date(row.billDate);
       const year = date.getFullYear();
-      const month = ('0' + (date.getMonth() + 1)).slice(-2); // Months are zero-based, so add 1
-      // const month1 = String(date.toLocaleDateString(undefined,{month:'numeric'}));
-      const day = ('0' + date.getDate()).slice(-2); // Pad single digit days with leading zero
+      const month = ('0' + (date.getMonth() + 1)).slice(-2); 
+      const day = ('0' + date.getDate()).slice(-2);
       const formattedDate = `${year}-${month}-${day}`;
+      this.rowData.date = formattedDate;
+      // const month1 = String(date.toLocaleDateString(undefined,{month:'numeric'}));
       // const formattedDate1 = `${year}-${month1}-${day}`;
       // console.log(formattedDate,'--->',formattedDate1);
-      this.rowData.date = formattedDate;
     }
   }
   
