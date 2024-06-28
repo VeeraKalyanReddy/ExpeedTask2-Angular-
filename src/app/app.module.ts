@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { routeComponents } from './app-routing.module';
 import { FormModalComponent } from './form-modal/form-modal.component';
-import { BillTypesService } from './bill-types.service';
+import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -20,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [BillTypesService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

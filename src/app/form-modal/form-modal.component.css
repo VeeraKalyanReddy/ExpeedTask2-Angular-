@@ -1,12 +1,15 @@
-.modal-backdrop {
+  .modal-backdrop {
     background-color: rgba(0, 0, 0, 0.616);
   }
-  
-  
- 
-  
-  
-  
- 
-  
-  
+
+  .dropdown-W{
+    width: 95%;
+  }
+
+  .dropdown-menu{
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+   

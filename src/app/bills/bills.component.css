@@ -1,3 +1,7 @@
 .hidden{
     display: none;
 }
+
+.headr-monthyear:focus {
+    outline: none; /* Remove the default outline on focus */
+}

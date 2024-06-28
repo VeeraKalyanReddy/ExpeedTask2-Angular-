@@ -1,58 +1,57 @@
-<div class="modal modal-backdrop" tabindex="-1" [ngStyle]="{display:'block'}">
+<div class="modal modal-backdrop" tabindex="-1" [ngStyle]="{display: 'block'}">
   <div class="modal-dialog">
     <div class="modal-content px-3">
-
       <div class="modal-header">
         <h1 class="modal-title fs-4" id="exampleModalLabel">Add Bill</h1>
         <button type="button" class="btn-close rounded-0" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal(false)"></button>
       </div>
 
-      <form #modalForm="ngForm" (ngSubmit)="onSubmit($event)">
+      <form #modalForm="ngForm" (ngSubmit)="onSubmit($event, modalForm)">
         <div class="modal-body">
-          <div class="modal-body px-0">
-            <div class="container-fluid">
-              <div class="row">
+          <div class="container-fluid">
+            <div class="row">
 
-                <div class="dropdown col-sm-12 col-md-6">
-                  <p class="modl-headings">Type</p>
-                  <button class="btn btn-secondary dropdown-toggle bg-transparent text-dark px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-wifi pe-3"></i><span class="pe-5 drop-content fw-semibold">{{ billForm.type }}</span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#" (click)="billForm.type='Landline'">Landline</a></li>
-                    <li><a class="dropdown-item" href="#" (click)="billForm.type='Electricity'">Electricity</a></li>
-                    <li><a class="dropdown-item" href="#" (click)="billForm.type='Water'">Water</a></li>
-                  </ul>
-                </div>
-
-                <div class="d-flex flex-column col-sm-12 col-md-6 form-group">
-                  <label class="modl-headings mt-3 mt-md-0" for="modal-date-value">Date</label>
-                  <input [(ngModel)]="billForm.date" name="date" id="modal-date-value" class="form-control date-input px-3 py-2 mt-3" type="date" required>
-                  <span *ngIf="submitted && !billForm.date" class="text-danger fw-medium fs-6 pt-0">*Date is required</span>
-                </div>
-
-                <div class="col-12 form-group">
-                  <label for="modal-shop-value" class="pt-3 modl-headings">Shop/Company/Person</label>
-                  <input [(ngModel)]="billForm.companyName" name="companyName" id="modal-shop-value" class="form-control custom-placeholder w-100 px-3 py-2 mt-3 mb-0 modl-input-text-cont fw-semibold" type="text" placeholder="Enter Your Shop/Company/Person" required>
-                  <small *ngIf="submitted && !billForm.companyName" class="text-danger fw-medium fs-6 pt-0" id="shopError">*Enter a label</small>
-                </div>
-
-                <div class="col-12 form-group">
-                  <label for="modal-desc" class="modl-headings pb-3 mt-3">Description</label>
-                  <input [(ngModel)]="billForm.desc" name="desc" id="modal-desc" class="form-control custom-placeholder w-100 px-3 pt-2 pb-5 modl-input-text-cont fw-semibold" type="text" placeholder="Enter Description" required>
-                  <small *ngIf="submitted && !billForm.desc" class="text-danger fw-medium fs-6 pt-0" id="shopError">*Enter your Description</small>
-                </div>
-
-                <div class="col-12 mb-2 form-group">
-                  <p class="pt-4 modl-headings">Amount</p>
-                  <div class="d-flex flex-row align-items-center modl-input-text-cont col-8 col-md-6">
-                    <p class="pop-amount px-3 mb-0 d-flex justify-content-center align-items-center"><i class="fa-solid fa-indian-rupee-sign text-light"></i></p>
-                    <input [(ngModel)]="billForm.amount" name="amount" id="modal-amount-value" placeholder="Enter Amount" class="form-control custom-placeholder text-end modal-amount-input pe-2 fs-5 fw-medium" type="text" required>
-                  </div>
-                  <span *ngIf="submitted && !isFormValid()" class="text-danger fw-medium fs-6 pt-0">*Amount must be a valid number</span>
-                </div>
-
+              <div class="dropdown col-sm-12 col-md-6">
+                <p class="modl-headings">Type</p>
+                <button class="btn btn-secondary dropdown-toggle dropdown-W bg-transparent text-dark pe-2 d-flex flex-row justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div><i class="fa-solid" [class]="'fa ' + selectedIconClass + ' pe-3'"></i><span class="drop-content fw-semibold">{{ billForm.type }}</span></div>
+                </button>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let option of categoryTypes">
+                    <a class="dropdown-item text-dark" (click)="setBillType(option.categoryTypeName, option.categoryTypeId, option.categoryTypeIcon)">
+                      <i class="fa-solid" [class]="'fa ' + option.categoryTypeIcon + ' pe-3'"></i>{{ option.categoryTypeName }}
+                    </a>
+                  </li>
+                </ul>
               </div>
+              
+              <div class="d-flex flex-column col-sm-12 col-md-6 form-group">
+                <label class="modl-headings mt-3 mt-md-0" for="modal-date-value">Date</label>
+                <input [(ngModel)]="billForm.date" name="date" id="modal-date-value" class="form-control date-input px-3 py-2 mt-3" type="date" required>
+                <span *ngIf="submitted && !billForm.date" class="text-danger fw-medium fs-6 pt-0">*Date is required</span>
+              </div>
+
+              <div class="col-12 form-group">
+                <label for="modal-shop-value" class="pt-3 modl-headings">Shop/Company/Person</label>
+                <input [(ngModel)]="billForm.companyName" name="companyName" id="modal-shop-value" class="form-control custom-placeholder w-100 px-3 py-2 mt-3 mb-0 modl-input-text-cont fw-semibold" type="text" placeholder="Enter Your Shop/Company/Person" required>
+                <small *ngIf="submitted && !billForm.companyName" class="text-danger fw-medium fs-6 pt-0" id="shopError">*Enter a label</small>
+              </div>
+
+              <div class="col-12 form-group">
+                <label for="modal-desc" class="modl-headings pb-3 mt-3">Description</label>
+                <input [(ngModel)]="billForm.desc" name="desc" id="modal-desc" class="form-control custom-placeholder w-100 px-3 pt-2 pb-5 modl-input-text-cont fw-semibold" type="text" placeholder="Enter Description" required>
+                <small *ngIf="submitted && !billForm.desc" class="text-danger fw-medium fs-6 pt-0" id="shopError">*Enter your Description</small>
+              </div>
+
+              <div class="col-12 mb-2 form-group">
+                <p class="pt-4 modl-headings">Amount</p>
+                <div class="d-flex flex-row align-items-center modl-input-text-cont col-8 col-md-6">
+                  <p class="pop-amount px-3 mb-0 d-flex justify-content-center align-items-center"><i class="fa-solid fa-indian-rupee-sign text-light"></i></p>
+                  <input [(ngModel)]="billForm.amount" name="amount" id="modal-amount-value" placeholder="Enter Amount" class="form-control custom-placeholder text-end modal-amount-input pe-2 fs-5 fw-medium" type="text" required>
+                </div>
+                <span *ngIf="submitted && !isFormValid()" class="text-danger fw-medium fs-6 pt-0">*Amount must be a valid number</span>
+              </div>
+
             </div>
           </div>
         </div>

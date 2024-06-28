@@ -1,9 +1,5 @@
-@import 'bootstrap';
+ @import 'bootstrap';
 
-
-
-
-/* You can add global styles to this file, and also import other style files */
 .bag-icon{
     color: #9C27B0;
 }
@@ -15,8 +11,8 @@
 }
 
 .profile{
-    height: 30px;
-    width: 30px;
+    height: 32px;
+    width: 32px;
     border: 1px solid #9C27B0;
     background-color: #9C27B03B;
     color: #9C27B0;
