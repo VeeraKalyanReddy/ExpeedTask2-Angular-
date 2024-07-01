@@ -81,28 +81,23 @@ export class FormModalComponent {
       if (this.formRowData && this.formRowData.cardId) {
         this.service.updateBillDetails(billDetails.billDetailsId, billDetails).subscribe(
           () => {
-            // console.log('Bill details updated successfully');
             alert('Bill details updated successfully');
             this.updateRow.emit(true);
             this.resetForm();
             this.closeModal(true);
           },
           (error) => {
-            // console.error('Error updating bill details:', error);
             alert('Failed to update bill details');
           }
         );
       } else {
-        // Create new bill details
         this.service.createBillDetails(billDetails).subscribe(
           () => {
-            console.log('Bill details created successfully');
             alert('Bill details created successfully');
             this.resetForm();
             this.closeModal(true);
           },
           (error) => {
-            console.error('Error creating bill details:', error);
             alert('Failed to create bill details');
           }
         );

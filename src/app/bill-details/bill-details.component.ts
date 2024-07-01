@@ -23,9 +23,7 @@ export class BillDetailsComponent implements OnInit {
   formattedTotalBillsAmount: string = '';
   selectedMonth: string = '';
  
-  constructor(
-    private route: ActivatedRoute,private service: ApiService,private dateService: DateService
-  ) { }
+  constructor(private route: ActivatedRoute,private service: ApiService,private dateService: DateService) { }
  
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -50,8 +48,8 @@ export class BillDetailsComponent implements OnInit {
  
   getTableDetails() {
     this.service.getTableRows().subscribe(data => {
-      this.tableRows = data;
-      // console.log(this.tableRows,'tablerows')  //all bill details
+      this.tableRows = data;    //all bill details
+      // console.log(this.tableRows,'tablerows') 
       this.getFilteredData();
     });
   }
@@ -72,6 +70,7 @@ export class BillDetailsComponent implements OnInit {
         const rowDate = new Date(row.billDate);
         return rowDate.getMonth() === selectedDate.getMonth() && rowDate.getFullYear() === selectedDate.getFullYear();
       });
+      // console.log(this.filteredRows,'fr')
       this.calculateTotalBillDetailsAmount();
     }
   }
@@ -91,10 +90,10 @@ export class BillDetailsComponent implements OnInit {
   getFilteredData() {
     this.totalBillDetailsAmount = 0; 
     if (this.categoryId) {
-      const matchedTypes = this.categoryTypesList.filter(type => type.categoryId == this.categoryId).map(type => type.categoryTypeId);
-      // console.log(matchedTypes,'mt')        // to get the categoryTypeId of matchedtypes
+      const matchedTypesId = this.categoryTypesList.filter(type => type.categoryId == this.categoryId).map(type => type.categoryTypeId);
+      // console.log(matchedTypesId,'mt')        // to get the categoryTypeId of matchedtypes
       this.filteredRows = this.tableRows
-        .filter(row => matchedTypes.includes(row.categoryTypeId))
+        .filter(row => matchedTypesId.includes(row.categoryTypeId))
         .map(row => this.formatRow(row));
         // console.log(this.filteredRows,'fr2')      // to get bill details of matched categoryTypeId
       this.filterRowsByMonth();
